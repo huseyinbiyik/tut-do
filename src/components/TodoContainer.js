@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import InputTodo from './InputToDo';
 import TodosList from './TodosList';
@@ -63,8 +63,9 @@ const TodoContainer = () => {
   }, [todos]);
 
   return (
+    <BrowserRouter>
+          <Navbar />
     <Routes>
-      <Navbar />
       <Route exact path="/">
         <div className="container">
           <div className="inner">
@@ -86,6 +87,7 @@ const TodoContainer = () => {
         <NotMatch />
       </Route>
     </Routes>
+    </BrowserRouter>
   );
 };
 
